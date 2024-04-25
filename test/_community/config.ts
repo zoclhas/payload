@@ -1,18 +1,15 @@
 import { buildConfigWithDefaults } from '../buildConfigWithDefaults'
 import { devUser } from '../credentials'
-import { MediaCollection } from './collections/Media'
-import { PostsCollection, postsSlug } from './collections/Posts'
-import { MenuGlobal } from './globals/Menu'
+import GalleryCollection from './collections/Gallery'
+import MediaCollection from './collections/Media'
+// import { PostsCollection, postsSlug } from './collections/Posts'
+// import { MenuGlobal } from './globals/Menu'
 
 export default buildConfigWithDefaults({
   // ...extend config here
-  collections: [
-    PostsCollection,
-    MediaCollection,
-    // ...add more collections here
-  ],
+  collections: [MediaCollection, GalleryCollection],
   globals: [
-    MenuGlobal,
+    // MenuGlobal,
     // ...add more globals here
   ],
   graphQL: {
@@ -28,11 +25,11 @@ export default buildConfigWithDefaults({
       },
     })
 
-    await payload.create({
-      collection: postsSlug,
-      data: {
-        text: 'example post',
-      },
-    })
+    // await payload.create({
+    //   collection: postsSlug,
+    //   data: {
+    //     text: 'example post',
+    //   },
+    // })
   },
 })
